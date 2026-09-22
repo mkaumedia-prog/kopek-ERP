@@ -1,0 +1,6 @@
+{
+  "name": "Mobikart POS & Inventory",
+  "description": "Comprehensive Mobile Shop ERP & Billing: IMEI tracking, Purchases, Sales, Expenses, P&L Reports, WhatsApp invoice & daily reports, and Bilingual interface.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

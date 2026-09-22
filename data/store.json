@@ -1,0 +1,545 @@
+{
+  "users": [
+    {
+      "_id": "usr_1",
+      "name": "Rajesh Sharma",
+      "email": "owner@mobikart.com",
+      "phone": "9876543210",
+      "password": "password123",
+      "role": "owner",
+      "createdAt": "2026-09-11"
+    },
+    {
+      "_id": "usr_2",
+      "name": "Amit Verma",
+      "email": "amit@mobikart.com",
+      "phone": "9876543211",
+      "password": "password123",
+      "role": "staff",
+      "createdAt": "2026-09-11"
+    },
+    {
+      "_id": "usr_3",
+      "name": "Priya Patel",
+      "email": "priya@mobikart.com",
+      "phone": "9876543212",
+      "password": "password123",
+      "role": "admin",
+      "createdAt": "2026-09-11"
+    }
+  ],
+  "purchases": [
+    {
+      "_id": "pur_1",
+      "date": "2026-09-11",
+      "supplier": "SuperTech National Distributors",
+      "product": "Apple iPhone 15 (128GB Black)",
+      "brand": "Apple",
+      "category": "Smartphones",
+      "imei": [
+        "865492051839201",
+        "865492051839202",
+        "865492051839203"
+      ],
+      "qty": 3,
+      "price": 64000,
+      "total": 192000,
+      "paymentMode": "Bank Transfer",
+      "invoiceNo": "ST-INV-89102",
+      "notes": "Official Apple India warranty stock",
+      "createdBy": "Rajesh Sharma"
+    },
+    {
+      "_id": "pur_2",
+      "date": "2026-09-11",
+      "supplier": "Apex Mobile Hub Mumbai",
+      "product": "OnePlus 12R (16GB+256GB Cool Blue)",
+      "brand": "OnePlus",
+      "category": "Smartphones",
+      "imei": [
+        "864201948271001",
+        "864201948271002",
+        "864201948271003",
+        "864201948271004"
+      ],
+      "qty": 4,
+      "price": 34500,
+      "total": 138000,
+      "paymentMode": "UPI",
+      "invoiceNo": "APEX-2026-442",
+      "notes": "High demand model",
+      "createdBy": "Rajesh Sharma"
+    },
+    {
+      "_id": "pur_3",
+      "date": "2026-09-17",
+      "supplier": "National Telecom Wholesale",
+      "product": "Samsung Galaxy S24 (256GB Onyx Black)",
+      "brand": "Samsung",
+      "category": "Smartphones",
+      "imei": [
+        "359821098273611",
+        "359821098273612"
+      ],
+      "qty": 2,
+      "price": 71000,
+      "total": 142000,
+      "paymentMode": "Bank Transfer",
+      "invoiceNo": "NTW-MAR-990",
+      "notes": "Includes free Galaxy SmartTag promo code",
+      "createdBy": "Rajesh Sharma"
+    },
+    {
+      "_id": "pur_4",
+      "date": "2026-09-17",
+      "supplier": "SuperTech National Distributors",
+      "product": "Redmi Note 13 Pro 5G (8GB+128GB Arctic White)",
+      "brand": "Xiaomi",
+      "category": "Smartphones",
+      "imei": [
+        "862901482019381",
+        "862901482019382",
+        "862901482019383",
+        "862901482019384",
+        "862901482019385"
+      ],
+      "qty": 5,
+      "price": 20500,
+      "total": 102500,
+      "paymentMode": "Bank Transfer",
+      "invoiceNo": "ST-INV-89145",
+      "notes": "Best seller budget 5G phone",
+      "createdBy": "Amit Verma"
+    },
+    {
+      "_id": "pur_5",
+      "date": "2026-09-17",
+      "supplier": "Apex Mobile Hub Mumbai",
+      "product": "Vivo V30 5G (8GB+128GB Peacock Green)",
+      "brand": "Vivo",
+      "category": "Smartphones",
+      "imei": [
+        "861029384756101",
+        "861029384756102",
+        "861029384756103"
+      ],
+      "qty": 3,
+      "price": 28000,
+      "total": 84000,
+      "paymentMode": "UPI",
+      "invoiceNo": "APEX-2026-489",
+      "notes": "Portrait camera flagship",
+      "createdBy": "Rajesh Sharma"
+    },
+    {
+      "_id": "pur_6",
+      "date": "2026-09-11",
+      "supplier": "Mobile Accessories Central",
+      "product": "Apple 20W USB-C Original Power Adapter",
+      "brand": "Apple",
+      "category": "Accessories",
+      "imei": [
+        "ACC-APP-20W-01",
+        "ACC-APP-20W-02",
+        "ACC-APP-20W-03",
+        "ACC-APP-20W-04"
+      ],
+      "qty": 4,
+      "price": 1400,
+      "total": 5600,
+      "paymentMode": "Cash",
+      "invoiceNo": "MAC-6612",
+      "notes": "1 Year Apple warranty",
+      "createdBy": "Amit Verma"
+    },
+    {
+      "_id": "pur_7",
+      "date": "2026-09-11",
+      "supplier": "Mobile Accessories Central",
+      "product": "Boat Rockerz 255 Pro+ Wireless Earphones",
+      "brand": "Boat",
+      "category": "Accessories",
+      "imei": [
+        "BOAT-255-001",
+        "BOAT-255-002",
+        "BOAT-255-003"
+      ],
+      "qty": 3,
+      "price": 850,
+      "total": 2550,
+      "paymentMode": "Cash",
+      "invoiceNo": "MAC-6613",
+      "notes": "Popular neckband",
+      "createdBy": "Amit Verma"
+    }
+  ],
+  "sales": [
+    {
+      "_id": "sale_1",
+      "invoiceNo": "INV-202609-0001",
+      "date": "2026-09-17",
+      "customerName": "Vikram Joshi",
+      "customerPhone": "9823456789",
+      "product": "Apple iPhone 15 (128GB Black)",
+      "brand": "Apple",
+      "imei": [
+        "865492051839201"
+      ],
+      "qty": 1,
+      "sellingPrice": 71999,
+      "discount": 1000,
+      "total": 70999,
+      "paymentMode": "UPI",
+      "profit": 6999,
+      "warranty": "1 Year Apple India Warranty",
+      "notes": "Applied festive discount of ₹1,000",
+      "createdBy": "Amit Verma"
+    },
+    {
+      "_id": "sale_2",
+      "invoiceNo": "INV-202609-0002",
+      "date": "2026-09-18",
+      "customerName": "Neha Sharma",
+      "customerPhone": "9811223344",
+      "product": "OnePlus 12R (16GB+256GB Cool Blue)",
+      "brand": "OnePlus",
+      "imei": [
+        "864201948271001"
+      ],
+      "qty": 1,
+      "sellingPrice": 39999,
+      "discount": 500,
+      "total": 39499,
+      "paymentMode": "Cash",
+      "profit": 4999,
+      "warranty": "1 Year OnePlus Official Warranty",
+      "notes": "Free tempered glass applied",
+      "createdBy": "Rajesh Sharma"
+    },
+    {
+      "_id": "sale_3",
+      "invoiceNo": "INV-202609-0003",
+      "date": "2026-09-18",
+      "customerName": "Rahul Deshmukh",
+      "customerPhone": "9765432100",
+      "product": "Redmi Note 13 Pro 5G (8GB+128GB Arctic White)",
+      "brand": "Xiaomi",
+      "imei": [
+        "862901482019381"
+      ],
+      "qty": 1,
+      "sellingPrice": 24999,
+      "discount": 1000,
+      "total": 23999,
+      "paymentMode": "UPI",
+      "profit": 3499,
+      "warranty": "1 Year Xiaomi Warranty",
+      "notes": "GPay payment completed",
+      "createdBy": "Amit Verma"
+    }
+  ],
+  "inventory": [
+    {
+      "_id": "inv_35bzzzamucrohn9",
+      "product": "fddsgd",
+      "brand": "Apple",
+      "category": "Smartphones",
+      "imei": "sdfsdf",
+      "purchaseId": "",
+      "purchasePrice": 0,
+      "sellingPrice": 0,
+      "status": "in-stock",
+      "addedDate": "2026-09-22"
+    },
+    {
+      "_id": "inv_1",
+      "product": "Apple iPhone 15 (128GB Black)",
+      "brand": "Apple",
+      "category": "Smartphones",
+      "imei": "865492051839201",
+      "purchaseId": "pur_1",
+      "purchasePrice": 64000,
+      "sellingPrice": 71999,
+      "status": "sold",
+      "addedDate": "2026-09-11",
+      "soldDate": "2026-09-17",
+      "saleId": "sale_1"
+    },
+    {
+      "_id": "inv_2",
+      "product": "Apple iPhone 15 (128GB Black)",
+      "brand": "Apple",
+      "category": "Smartphones",
+      "imei": "865492051839202",
+      "purchaseId": "pur_1",
+      "purchasePrice": 64000,
+      "sellingPrice": 71999,
+      "status": "in-stock",
+      "addedDate": "2026-09-11"
+    },
+    {
+      "_id": "inv_3",
+      "product": "Apple iPhone 15 (128GB Black)",
+      "brand": "Apple",
+      "category": "Smartphones",
+      "imei": "865492051839203",
+      "purchaseId": "pur_1",
+      "purchasePrice": 64000,
+      "sellingPrice": 71999,
+      "status": "in-stock",
+      "addedDate": "2026-09-11"
+    },
+    {
+      "_id": "inv_4",
+      "product": "OnePlus 12R (16GB+256GB Cool Blue)",
+      "brand": "OnePlus",
+      "category": "Smartphones",
+      "imei": "864201948271001",
+      "purchaseId": "pur_2",
+      "purchasePrice": 34500,
+      "sellingPrice": 39999,
+      "status": "sold",
+      "addedDate": "2026-09-11",
+      "soldDate": "2026-09-18",
+      "saleId": "sale_2"
+    },
+    {
+      "_id": "inv_5",
+      "product": "OnePlus 12R (16GB+256GB Cool Blue)",
+      "brand": "OnePlus",
+      "category": "Smartphones",
+      "imei": "864201948271002",
+      "purchaseId": "pur_2",
+      "purchasePrice": 34500,
+      "sellingPrice": 39999,
+      "status": "in-stock",
+      "addedDate": "2026-09-11"
+    },
+    {
+      "_id": "inv_6",
+      "product": "OnePlus 12R (16GB+256GB Cool Blue)",
+      "brand": "OnePlus",
+      "category": "Smartphones",
+      "imei": "864201948271003",
+      "purchaseId": "pur_2",
+      "purchasePrice": 34500,
+      "sellingPrice": 39999,
+      "status": "in-stock",
+      "addedDate": "2026-09-11"
+    },
+    {
+      "_id": "inv_7",
+      "product": "OnePlus 12R (16GB+256GB Cool Blue)",
+      "brand": "OnePlus",
+      "category": "Smartphones",
+      "imei": "864201948271004",
+      "purchaseId": "pur_2",
+      "purchasePrice": 34500,
+      "sellingPrice": 39999,
+      "status": "in-stock",
+      "addedDate": "2026-09-11"
+    },
+    {
+      "_id": "inv_8",
+      "product": "Samsung Galaxy S24 (256GB Onyx Black)",
+      "brand": "Samsung",
+      "category": "Smartphones",
+      "imei": "359821098273611",
+      "purchaseId": "pur_3",
+      "purchasePrice": 71000,
+      "sellingPrice": 79999,
+      "status": "in-stock",
+      "addedDate": "2026-09-17"
+    },
+    {
+      "_id": "inv_9",
+      "product": "Samsung Galaxy S24 (256GB Onyx Black)",
+      "brand": "Samsung",
+      "category": "Smartphones",
+      "imei": "359821098273612",
+      "purchaseId": "pur_3",
+      "purchasePrice": 71000,
+      "sellingPrice": 79999,
+      "status": "in-stock",
+      "addedDate": "2026-09-17"
+    },
+    {
+      "_id": "inv_10",
+      "product": "Redmi Note 13 Pro 5G (8GB+128GB Arctic White)",
+      "brand": "Xiaomi",
+      "category": "Smartphones",
+      "imei": "862901482019381",
+      "purchaseId": "pur_4",
+      "purchasePrice": 20500,
+      "sellingPrice": 24999,
+      "status": "sold",
+      "addedDate": "2026-09-17",
+      "soldDate": "2026-09-18",
+      "saleId": "sale_3"
+    },
+    {
+      "_id": "inv_11",
+      "product": "Redmi Note 13 Pro 5G (8GB+128GB Arctic White)",
+      "brand": "Xiaomi",
+      "category": "Smartphones",
+      "imei": "862901482019382",
+      "purchaseId": "pur_4",
+      "purchasePrice": 20500,
+      "sellingPrice": 24999,
+      "status": "in-stock",
+      "addedDate": "2026-09-17"
+    },
+    {
+      "_id": "inv_12",
+      "product": "Redmi Note 13 Pro 5G (8GB+128GB Arctic White)",
+      "brand": "Xiaomi",
+      "category": "Smartphones",
+      "imei": "862901482019383",
+      "purchaseId": "pur_4",
+      "purchasePrice": 20500,
+      "sellingPrice": 24999,
+      "status": "in-stock",
+      "addedDate": "2026-09-17"
+    },
+    {
+      "_id": "inv_13",
+      "product": "Vivo V30 5G (8GB+128GB Peacock Green)",
+      "brand": "Vivo",
+      "category": "Smartphones",
+      "imei": "861029384756101",
+      "purchaseId": "pur_5",
+      "purchasePrice": 28000,
+      "sellingPrice": 32999,
+      "status": "in-stock",
+      "addedDate": "2026-09-17"
+    },
+    {
+      "_id": "inv_14",
+      "product": "Vivo V30 5G (8GB+128GB Peacock Green)",
+      "brand": "Vivo",
+      "category": "Smartphones",
+      "imei": "861029384756102",
+      "purchaseId": "pur_5",
+      "purchasePrice": 28000,
+      "sellingPrice": 32999,
+      "status": "in-stock",
+      "addedDate": "2026-09-17"
+    },
+    {
+      "_id": "inv_15",
+      "product": "Apple 20W USB-C Original Power Adapter",
+      "brand": "Apple",
+      "category": "Accessories",
+      "imei": "ACC-APP-20W-01",
+      "purchaseId": "pur_6",
+      "purchasePrice": 1400,
+      "sellingPrice": 1900,
+      "status": "in-stock",
+      "addedDate": "2026-09-11"
+    },
+    {
+      "_id": "inv_16",
+      "product": "Apple 20W USB-C Original Power Adapter",
+      "brand": "Apple",
+      "category": "Accessories",
+      "imei": "ACC-APP-20W-02",
+      "purchaseId": "pur_6",
+      "purchasePrice": 1400,
+      "sellingPrice": 1900,
+      "status": "in-stock",
+      "addedDate": "2026-09-11"
+    },
+    {
+      "_id": "inv_17",
+      "product": "Boat Rockerz 255 Pro+ Wireless Earphones",
+      "brand": "Boat",
+      "category": "Accessories",
+      "imei": "BOAT-255-001",
+      "purchaseId": "pur_7",
+      "purchasePrice": 850,
+      "sellingPrice": 1299,
+      "status": "in-stock",
+      "addedDate": "2026-09-11"
+    }
+  ],
+  "expenses": [
+    {
+      "_id": "exp_1",
+      "date": "2026-09-17",
+      "category": "Shop Rent",
+      "amount": 35000,
+      "paymentMode": "Bank Transfer",
+      "description": "Main Market Shop Rent for current month",
+      "createdBy": "Rajesh Sharma"
+    },
+    {
+      "_id": "exp_2",
+      "date": "2026-09-17",
+      "category": "Electricity",
+      "amount": 4200,
+      "paymentMode": "UPI",
+      "description": "MSEDCL Electricity commercial bill",
+      "createdBy": "Rajesh Sharma"
+    },
+    {
+      "_id": "exp_3",
+      "date": "2026-09-18",
+      "category": "Tea & Snacks",
+      "amount": 380,
+      "paymentMode": "Cash",
+      "description": "Counter tea & refreshments for staff & guests",
+      "createdBy": "Amit Verma"
+    },
+    {
+      "_id": "exp_4",
+      "date": "2026-09-11",
+      "category": "Marketing",
+      "amount": 2500,
+      "paymentMode": "Cash",
+      "description": "Local newspaper pamphlets & standee banners",
+      "createdBy": "Rajesh Sharma"
+    }
+  ],
+  "settings": {
+    "shopName": "KOPEK MOBILES",
+    "tagline": "Smartphones, Accessories & Repairs",
+    "address": "Shop 14, Galaxy Market, MG Road, Pune, Maharashtra 411001",
+    "phone": "+91 98765 43210",
+    "email": "contact@mobikart.in",
+    "gst": "27AAACG0123M1Z5",
+    "logoUrl": "",
+    "whatsappNumbers": [
+      {
+        "id": "wa_1",
+        "name": "Rajesh Sharma (Owner)",
+        "phone": "9876543210",
+        "role": "Owner",
+        "enabled": true
+      },
+      {
+        "id": "wa_2",
+        "name": "Sanjay Mehta (Partner)",
+        "phone": "9822334455",
+        "role": "Partner",
+        "enabled": true
+      },
+      {
+        "id": "wa_3",
+        "name": "CA Rakesh Kulkarni (Accountant)",
+        "phone": "9911223344",
+        "role": "Accountant",
+        "enabled": true
+      }
+    ],
+    "lowStockThreshold": 3,
+    "whatsappApiConfig": {
+      "phoneNumberId": "109823475928371",
+      "accessToken": "",
+      "templateName": "daily_shop_summary_v1",
+      "enabled": false,
+      "autoScheduleTime": "21:00",
+      "autoSendDailyReport": true
+    },
+    "currencySymbol": "₹"
+  }
+}
