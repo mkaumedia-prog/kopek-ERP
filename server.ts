@@ -928,31 +928,6 @@ app.post("/api/restore", handleRestore);
 app.post("/api/backup/reset", handleResetDemo);
 app.post("/api/reset-demo", handleResetDemo);
 
-// WhatsApp Mode B - Cloud API / Auto-Scheduler Test Dispatch
-app.post("/api/whatsapp/send-report", (req, res) => {
-  const { recipients, messageBody, mode } = req.body;
-  const state = db.getAll();
-  const config = state.settings.whatsappApiConfig;
-
-  // Log dispatch record
-  const dispatchLog = {
-    id: "wa_log_" + Date.now(),
-    timestamp: new Date().toISOString(),
-    recipients: recipients || state.settings.whatsappNumbers.filter(w => w.enabled).map(w => w.phone),
-    mode: mode || "cloud_api",
-    status: config?.enabled && config?.accessToken ? "delivered" : "simulated_success",
-    messageSnippet: (messageBody || "").slice(0, 100) + "...",
-  };
-
-  res.json({
-    success: true,
-    message: config?.enabled && config?.accessToken 
-      ? "Daily report dispatched via WhatsApp Cloud API" 
-      : "Daily report dispatched in test mode (Configured recipients received simulated broadcast).",
-    dispatchLog,
-  });
-});
-
 // ==========================================
 // VITE MIDDLEWARE & SERVER STARTUP
 // ==========================================

@@ -29,7 +29,6 @@ interface DashboardViewProps {
   onOpenNewSale: () => void;
   onOpenNewPurchase: () => void;
   onOpenNewExpense: () => void;
-  onOpenWhatsAppShare: () => void;
   onSelectSaleForInvoice: (sale: Sale) => void;
 }
 
@@ -44,7 +43,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   onOpenNewSale,
   onOpenNewPurchase,
   onOpenNewExpense,
-  onOpenWhatsAppShare,
   onSelectSaleForInvoice,
 }) => {
   const t = translations[lang];
@@ -133,16 +131,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             >
               <Wallet className="w-4 h-4 text-rose-400" />
               <span>{t.addExpense}</span>
-            </button>
-
-            <button
-              id="dash-quick-whatsapp-btn"
-              onClick={onOpenWhatsAppShare}
-              className="flex items-center justify-center gap-1.5 px-3 py-3 rounded-xl bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-500/40 text-emerald-300 text-xs font-semibold transition-all active:scale-95"
-              title="Share report on WhatsApp"
-            >
-              <MessageCircle className="w-4 h-4 text-emerald-400" />
-              <span>WhatsApp</span>
             </button>
           </div>
         </div>

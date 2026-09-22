@@ -1,8 +1,7 @@
 import React from 'react';
-import { X, Printer, MessageSquare, Check, ShieldCheck } from 'lucide-react';
+import { X, Printer, Check, ShieldCheck } from 'lucide-react';
 import { Sale, ShopSettings } from '../types';
 import { formatINR, formatDate } from '../utils/formatters';
-import { buildCustomerInvoiceMessage, openWhatsAppDirect } from '../utils/whatsapp';
 
 interface InvoiceModalProps {
   sale: Sale | null;
@@ -21,11 +20,6 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
 
   const handlePrint = () => {
     window.print();
-  };
-
-  const handleWhatsApp = () => {
-    const message = buildCustomerInvoiceMessage(sale, shopSettings);
-    openWhatsAppDirect(sale.customerPhone, message);
   };
 
   return (
@@ -50,14 +44,6 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <button
-              onClick={handleWhatsApp}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white transition-colors shadow-sm"
-              title="Share bill on WhatsApp"
-            >
-              <MessageSquare className="w-4 h-4" />
-              <span>WhatsApp</span>
-            </button>
             <button
               onClick={handlePrint}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-sm"

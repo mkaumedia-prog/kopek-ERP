@@ -73,13 +73,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
       badge: 'P&L',
     },
     {
-      id: 'whatsapp',
-      label: t.whatsapp,
-      icon: MessageCircle,
-      badge: 'Meta',
-      color: 'text-emerald-500',
-    },
-    {
       id: 'settings',
       label: t.settings,
       icon: SettingsIcon,

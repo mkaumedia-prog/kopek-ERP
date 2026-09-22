@@ -17,7 +17,6 @@ import { PurchasesView } from './components/PurchasesView';
 import { InventoryView } from './components/InventoryView';
 import { ExpensesView } from './components/ExpensesView';
 import { ReportsView } from './components/ReportsView';
-import { WhatsAppView } from './components/WhatsAppView';
 import { SettingsView } from './components/SettingsView';
 import { InvoiceModal } from './components/InvoiceModal';
 import { ToastContainer, ToastMessage } from './components/Toast';
@@ -32,19 +31,6 @@ const DEFAULT_SETTINGS: ShopSettings = {
   gst: '27AABCM8291M1Z4',
   lowStockThreshold: 3,
   currencySymbol: '₹',
-  whatsappNumbers: [
-    { id: 'wa_1', name: 'Rahul Sharma', phone: '9822019283', role: 'Owner', enabled: true },
-    { id: 'wa_2', name: 'Amit Kulkarni', phone: '9890123456', role: 'Partner', enabled: true },
-    { id: 'wa_3', name: 'Sanjay Deshmukh (CA)', phone: '9422334455', role: 'Accountant', enabled: true },
-  ],
-  whatsappApiConfig: {
-    phoneNumberId: '',
-    accessToken: '',
-    templateName: 'daily_shop_summary_v1',
-    enabled: false,
-    autoScheduleTime: '21:00',
-    autoSendDailyReport: true,
-  },
 };
 
 const DEFAULT_USER: User = {
@@ -292,7 +278,6 @@ export default function App() {
   const handleOpenNewSale = () => setActiveTab('sales');
   const handleOpenNewPurchase = () => setActiveTab('purchases');
   const handleOpenNewExpense = () => setActiveTab('expenses');
-  const handleOpenWhatsAppShare = () => setActiveTab('whatsapp');
 
   return (
     <div className={`min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased transition-colors duration-150`}>
@@ -359,7 +344,6 @@ export default function App() {
                   onOpenNewSale={handleOpenNewSale}
                   onOpenNewPurchase={handleOpenNewPurchase}
                   onOpenNewExpense={handleOpenNewExpense}
-                  onOpenWhatsAppShare={handleOpenWhatsAppShare}
                   onSelectSaleForInvoice={sale => setSelectedSaleForInvoice(sale)}
                 />
               )}
@@ -422,19 +406,6 @@ export default function App() {
                   inventory={inventory}
                   shopSettings={shopSettings}
                   lang={lang}
-                  onOpenWhatsAppShare={handleOpenWhatsAppShare}
-                />
-              )}
-
-              {activeTab === 'whatsapp' && (
-                <WhatsAppView
-                  sales={sales}
-                  expenses={expenses}
-                  inventory={inventory}
-                  shopSettings={shopSettings}
-                  lang={lang}
-                  onUpdateSettings={handleUpdateSettings}
-                  showToast={showToast}
                 />
               )}
 

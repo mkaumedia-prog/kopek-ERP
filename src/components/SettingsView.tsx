@@ -5,7 +5,6 @@ import {
   Users,
   Database,
   Lock,
-  Phone,
   Plus,
   Trash2,
   Download,
@@ -15,7 +14,7 @@ import {
   CheckCircle2,
   AlertTriangle,
 } from 'lucide-react';
-import { ShopSettings, WhatsAppContact, User, Role } from '../types';
+import { ShopSettings, User, Role } from '../types';
 import { translations, Language } from '../utils/i18n';
 
 interface SettingsViewProps {
@@ -48,7 +47,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
   const t = translations[lang];
 
   // Active section inside Settings
-  const [activeSection, setActiveSection] = useState<'profile' | 'whatsapp' | 'users' | 'backup' | 'password'>('profile');
+  const [activeSection, setActiveSection] = useState<'profile' | 'users' | 'backup' | 'password'>('profile');
 
   // Profile Form
   const [shopName, setShopName] = useState(shopSettings.shopName || '');
@@ -58,11 +57,6 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
   const [email, setEmail] = useState(shopSettings.email || '');
   const [gst, setGst] = useState(shopSettings.gst || '');
   const [lowStockThreshold, setLowStockThreshold] = useState(shopSettings.lowStockThreshold || 3);
-
-  // New WhatsApp Contact form
-  const [newWaName, setNewWaName] = useState('');
-  const [newWaPhone, setNewWaPhone] = useState('');
-  const [newWaRole, setNewWaRole] = useState<WhatsAppContact['role']>('Partner');
 
   // New User form
   const [newUserName, setNewUserName] = useState('');
@@ -95,50 +89,6 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
     } catch (err: any) {
       showToast('Error', err.message, 'error');
     }
-  };
-
-  // Add WhatsApp Contact
-  const handleAddWaContact = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!newWaName.trim() || !newWaPhone.trim()) {
-      showToast('Error', 'Name and Phone number are required', 'error');
-      return;
-    }
-
-    const updatedNumbers: WhatsAppContact[] = [
-      ...shopSettings.whatsappNumbers,
-      {
-        id: 'wa_' + Date.now(),
-        name: newWaName.trim(),
-        phone: newWaPhone.trim().replace(/[^0-9]/g, ''),
-        role: newWaRole,
-        enabled: true,
-      },
-    ];
-
-    try {
-      await onUpdateSettings({ whatsappNumbers: updatedNumbers });
-      showToast('Contact Added', `${newWaName} added to WhatsApp delivery list`, 'success');
-      setNewWaName('');
-      setNewWaPhone('');
-    } catch (err: any) {
-      showToast('Error', err.message, 'error');
-    }
-  };
-
-  // Toggle contact enabled/disabled
-  const handleToggleContact = async (id: string) => {
-    const updated = shopSettings.whatsappNumbers.map(c =>
-      c.id === id ? { ...c, enabled: !c.enabled } : c
-    );
-    await onUpdateSettings({ whatsappNumbers: updated });
-  };
-
-  // Remove WhatsApp contact
-  const handleRemoveContact = async (id: string) => {
-    const updated = shopSettings.whatsappNumbers.filter(c => c.id !== id);
-    await onUpdateSettings({ whatsappNumbers: updated });
-    showToast('Contact Removed', 'Recipient removed from list', 'info');
   };
 
   // Add Staff User
@@ -235,7 +185,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
           {t.settings} &amp; Shop Profile
         </h1>
         <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-          Configure shop invoice details, WhatsApp automated delivery, staff roles, and data backup
+          Configure shop invoice details, staff roles, and data backup
         </p>
       </div>
 
@@ -251,18 +201,6 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
         >
           <Store className="w-4 h-4" />
           <span>{t.shopProfile}</span>
-        </button>
-
-        <button
-          onClick={() => setActiveSection('whatsapp')}
-          className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
-            activeSection === 'whatsapp'
-              ? 'bg-blue-600 text-white shadow-xs'
-              : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-          }`}
-        >
-          <Phone className="w-4 h-4 text-emerald-500" />
-          <span>WhatsApp Report Delivery</span>
         </button>
 
         <button
@@ -311,7 +249,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
 
           <div>
             <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1">
-              Shop Name (appears on print invoice &amp; WhatsApp bills) <span className="text-rose-500">*</span>
+              Shop Name (appears on print invoice &amp; bills) <span className="text-rose-500">*</span>
             </label>
             <input
               type="text"
@@ -399,96 +337,6 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             </button>
           </div>
         </form>
-      )}
-
-      {/* SECTION 2: WHATSAPP RECIPIENTS */}
-      {activeSection === 'whatsapp' && (
-        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm max-w-2xl space-y-6 text-xs">
-          <div>
-            <h2 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
-              WhatsApp Report Delivery Numbers
-            </h2>
-            <p className="text-slate-500 text-[11px]">
-              Daily business summaries, profits, and cash receipts will be shared with these recipients.
-            </p>
-          </div>
-
-          {/* List */}
-          <div className="space-y-2.5">
-            {shopSettings.whatsappNumbers.map(contact => (
-              <div
-                key={contact.id}
-                className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-center justify-between"
-              >
-                <div className="flex items-center gap-3">
-                  <input
-                    type="checkbox"
-                    checked={contact.enabled}
-                    onChange={() => handleToggleContact(contact.id)}
-                    className="w-4 h-4 accent-emerald-600 cursor-pointer"
-                    title="Enable/disable this recipient"
-                  />
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <span className="font-bold text-slate-900 dark:text-white">{contact.name}</span>
-                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-bold uppercase">
-                        {contact.role}
-                      </span>
-                    </div>
-                    <p className="text-slate-500 font-mono text-[11px]">+91 {contact.phone}</p>
-                  </div>
-                </div>
-
-                <button
-                  onClick={() => handleRemoveContact(contact.id)}
-                  className="p-1.5 text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950 rounded-lg transition-colors"
-                >
-                  <Trash2 className="w-4 h-4" />
-                </button>
-              </div>
-            ))}
-          </div>
-
-          {/* Add Contact Form */}
-          <form onSubmit={handleAddWaContact} className="p-4 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 space-y-3">
-            <h3 className="font-bold text-slate-900 dark:text-white">+ Add Recipient (Partner, Accountant, Manager)</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-              <input
-                type="text"
-                placeholder="Contact Name"
-                value={newWaName}
-                onChange={e => setNewWaName(e.target.value)}
-                required
-                className="px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none"
-              />
-              <input
-                type="tel"
-                placeholder="10-digit Phone"
-                value={newWaPhone}
-                onChange={e => setNewWaPhone(e.target.value)}
-                required
-                className="px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-mono outline-none"
-              />
-              <select
-                value={newWaRole}
-                onChange={e => setNewWaRole(e.target.value as any)}
-                className="px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none"
-              >
-                <option value="Partner">Partner</option>
-                <option value="Accountant">Accountant (CA)</option>
-                <option value="Owner">Owner</option>
-                <option value="Manager">Manager</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <button
-              type="submit"
-              className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold"
-            >
-              Add to Delivery List
-            </button>
-          </form>
-        </div>
       )}
 
       {/* SECTION 3: USER & STAFF MANAGEMENT */}

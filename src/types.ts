@@ -75,23 +75,6 @@ export interface InventoryItem {
   saleId?: string;
 }
 
-export interface WhatsAppContact {
-  id: string;
-  name: string;
-  phone: string;
-  role: 'Partner' | 'Accountant' | 'Owner' | 'Manager' | 'Other';
-  enabled: boolean;
-}
-
-export interface WhatsAppApiConfig {
-  phoneNumberId: string;
-  accessToken: string;
-  templateName: string;
-  enabled: boolean;
-  autoScheduleTime: string; // e.g. "21:00" (9 PM)
-  autoSendDailyReport: boolean;
-}
-
 export interface ShopSettings {
   shopName: string;
   tagline: string;
@@ -100,9 +83,7 @@ export interface ShopSettings {
   email: string;
   gst: string;
   logoUrl?: string;
-  whatsappNumbers: WhatsAppContact[];
   lowStockThreshold: number;
-  whatsappApiConfig: WhatsAppApiConfig;
   currencySymbol: string;
 }
 

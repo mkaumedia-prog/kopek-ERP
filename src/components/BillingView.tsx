@@ -20,7 +20,6 @@ import confetti from 'canvas-confetti';
 import { Sale, InventoryItem, ShopSettings, PaymentMode, Role } from '../types';
 import { formatINR, formatDate } from '../utils/formatters';
 import { exportSalesCSV } from '../utils/export';
-import { buildCustomerInvoiceMessage, openWhatsAppDirect } from '../utils/whatsapp';
 import { translations, Language } from '../utils/i18n';
 
 interface BillingViewProps {
@@ -231,7 +230,7 @@ export const BillingView: React.FC<BillingViewProps> = ({
             {t.billingTitle}
           </h1>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-            Create Tax Invoice with live IMEI tracking &amp; instant WhatsApp share
+            Create Tax Invoice with live IMEI tracking &amp; instant print
           </p>
         </div>
 
@@ -271,7 +270,7 @@ export const BillingView: React.FC<BillingViewProps> = ({
 
             <div>
               <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                {t.customerPhone} (for WhatsApp Bill)
+                {t.customerPhone}
               </label>
               <input
                 id="pos-customer-phone-input"
@@ -587,16 +586,6 @@ export const BillingView: React.FC<BillingViewProps> = ({
                     </td>
                     <td className="py-3 px-3 text-right whitespace-nowrap">
                       <div className="flex items-center justify-end gap-1.5">
-                        <button
-                          onClick={() => {
-                            const msg = buildCustomerInvoiceMessage(sale, shopSettings);
-                            openWhatsAppDirect(sale.customerPhone, msg);
-                          }}
-                          className="p-1.5 text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950 rounded-lg transition-colors"
-                          title="Share bill on WhatsApp"
-                        >
-                          <MessageSquare className="w-4 h-4" />
-                        </button>
                         <button
                           onClick={() => onSelectSaleForInvoice(sale)}
                           className="p-1.5 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950 rounded-lg transition-colors"

@@ -39,15 +39,3 @@ export function generateInvoiceNo(count: number): string {
   const seq = String(count + 1).padStart(4, '0');
   return `INV-${year}${month}-${seq}`;
 }
-
-// Sanitize phone number for WhatsApp wa.me link (standardizes to +91 or specified code)
-export function sanitizeWhatsAppPhone(phone: string): string {
-  const cleaned = phone.replace(/[^0-9]/g, '');
-  if (cleaned.length === 10) {
-    return `91${cleaned}`;
-  }
-  if (cleaned.startsWith('0') && cleaned.length === 11) {
-    return `91${cleaned.substring(1)}`;
-  }
-  return cleaned;
-}

@@ -508,38 +508,7 @@
     "email": "contact@mobikart.in",
     "gst": "27AAACG0123M1Z5",
     "logoUrl": "",
-    "whatsappNumbers": [
-      {
-        "id": "wa_1",
-        "name": "Rajesh Sharma (Owner)",
-        "phone": "9876543210",
-        "role": "Owner",
-        "enabled": true
-      },
-      {
-        "id": "wa_2",
-        "name": "Sanjay Mehta (Partner)",
-        "phone": "9822334455",
-        "role": "Partner",
-        "enabled": true
-      },
-      {
-        "id": "wa_3",
-        "name": "CA Rakesh Kulkarni (Accountant)",
-        "phone": "9911223344",
-        "role": "Accountant",
-        "enabled": true
-      }
-    ],
     "lowStockThreshold": 3,
-    "whatsappApiConfig": {
-      "phoneNumberId": "109823475928371",
-      "accessToken": "",
-      "templateName": "daily_shop_summary_v1",
-      "enabled": false,
-      "autoScheduleTime": "21:00",
-      "autoSendDailyReport": true
-    },
     "currencySymbol": "₹"
   }
 }
